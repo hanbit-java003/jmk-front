@@ -2,13 +2,52 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{> template/title}}</title>
 </head>
 <body>
 {{> template/header}}
-Index Page<br>
-<input type="text" id="txt-hello"><button class="say-hello">Hello</button><br>
-<button class="goto-sub btn btn-primary">Go To Sub Page</button>
+<div class="center">
+    <ul class="seoul-first">
+        <li style="background-image: url(./img/face.png)">
+        </li>
+    </ul>
+</div>
+
+<div class="center">
+    <div class="seoul-notice">
+        NOTICE
+    </div>
+    <ul class="seoul-notice-contents">
+        <li>1</li>
+    </ul>
+    <ul class="seoul-notice-contents">
+        <li>2</li>
+    </ul>
+</div>
+
+<div class="center">
+    <ul class="seoul-exhibition-contents">
+        <li>1</li>
+    </ul>
+    <ul class="seoul-exhibition-contents">
+        <li>2</li>
+    </ul>
+    <div class="seoul-exhibition">
+        EXHIBITION
+    </div>
+</div>
+
+<div class="center">
+    <div class="seoul-border">
+        BORDER
+    </div>
+    <ul class="seoul-border-contents">
+        <li>1</li>
+    </ul>
+    <ul class="seoul-border-contents">
+        <li>2</li>
+    </ul>
+</div>
 {{> template/footer}}
 </body>
 </html>
