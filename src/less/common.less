@@ -11,7 +11,7 @@ ul {
 }
 
 
-
+// 윗단
 .menu {
   position: relative;
   width: 100%;
@@ -70,10 +70,11 @@ ul {
 }
 
 .seoul-menus > li {
+  position: relative;
   display: inline-block;
   font-size: 20px;
   font-weight: bold;
-  margin-right: 20px;
+  margin-right: 40px;
   cursor: pointer;
 }
 
@@ -81,16 +82,47 @@ ul {
   margin-right: 0px;
 }
 
-.seoul-menus > li:hover {
+.seoul-menu-text:hover {
   color: red;
 }
+/*
+.seoul-menus > li:hover {
+  color: red;
+}*/
+
+.seoul-sub-menu{
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0px;
+  border: solid 1px red;
+  background-color: #fff;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.seoul-sub-menu > li {
+  padding:10px 10px;
+  width: 150px;
+  font-size: 12px;
+  line-height: 100%;
+  cursor: pointer;
+}
+
+.seoul-sub-menu >li:hover {
+  margin: 2px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
 
 // 아랫단
 .footer {
   border-top: solid 2px #efefef;
   clear: both;
   margin: 20px 0 0 0;
-  padding: 0 0 20px 0;
+  padding: 0 0 40px 0;
 }
 
 .seoul-logo2 {
