@@ -1,0 +1,19 @@
+<li>
+    <div class="seoul-menu-text">
+        {{name}}
+    </div>
+    {{#if subMenu}}
+    <ul class="seoul-sub-menu{{#if board}} board{{/if}}">
+        {{#each subMenu ~}}
+            <li>{{name}}</li>
+            {{#if subSub ~}}
+                <ul class="seoul-sub-sub">
+                    {{#each subSub~}}
+                        <li>{{name}}</li>
+                    {{~/each}}
+                </ul>
+            {{/if}}
+        {{~/each}}
+    </ul>
+    {{/if}}
+</li>
