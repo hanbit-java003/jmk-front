@@ -5,7 +5,7 @@
 var menus = require('./model/menu');
 
 
-function initMenu2() {
+function initMenu() {
     var template = require('../template/seoul-menu.hbs');
     var menu = $('.seoul-menus');
 
@@ -21,7 +21,7 @@ function initMenu2() {
 
 
 
-initMenu2();
+initMenu();
 
 
 

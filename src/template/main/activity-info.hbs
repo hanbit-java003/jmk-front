@@ -1,0 +1,57 @@
+{{#if title}}
+<div class="seoul-notice1">
+    {{title}}
+</div>
+{{/if}}
+
+{{#if titleEx}}
+<div class="seoul-exhibition1">
+    {{titleEx}}
+</div>
+{{/if}}
+
+{{#if img}}
+<img src="{{img}}" class="seoul-exhibition-clock">
+{{/if}}
+
+{{#if time}}
+<div class="seoul-exhibition2">
+    {{time}}
+</div>
+{{/if}}
+
+{{#if date}}
+<ul class="seoul-exhibition-info">
+{{#each date}}
+    <li>{{name}}</li>
+{{/each}}
+</ul>
+{{/if}}
+
+{{#if time1}}
+<ul class="seoul-exhibition-info2">
+{{#each time1}}
+    <li>{{name}}</li>
+{{/each}}
+</ul>
+{{/if}}
+
+{{#if time2}}
+<ul class="seoul-exhibition-info2">
+    {{#each time2}}
+    <li>{{name}}</li>
+    {{/each}}
+</ul>
+{{/if}}
+
+{{#if last}}
+<div class="seoul-exhibition3">
+    {{last}}
+</div>
+{{/if}}
+
+{{#if sub}}
+<div class="seoul-notice2">
+    {{sub}}
+</div>
+{{/if}}
