@@ -1,15 +1,53 @@
 @import 'common.less';
 
+
 .seoul-first {
+  position: relative;
   margin: 20px 0px;
   height: 400px;
 }
-.seoul-first > li {
+
+.photo {
+  position: absolute;
+  margin: 20px 0px;
+  height: 400px;
+  background-size: cover;
+}
+
+.seoul-first > li:first-child {
+  position: absolute;
   display: inline-block;
   background-size: cover;
-  width: 100%;
-  height: 100%;
+  padding: 0 10px;
+  font-size: 30px;
+  color: #fff;
+  right: 60px;
+  bottom: 0px;
+  background-color: black;
+  cursor: pointer;
 }
+.seoul-first > li:first-child:hover {
+  background-color: red;
+}
+
+.seoul-first > li:nth-child(2) {
+  position: absolute;
+  padding: 0 10px;
+  display: inline-block;
+  background-size: cover;
+  font-size: 30px;
+  color: #fff;
+  right: 0px;
+  bottom: 0px;
+  background-color: black;
+  cursor: pointer;
+}
+
+.seoul-first > li:nth-child(2):hover {
+  background-color: red;
+}
+
+
 
 .seoul-notice {
   margin-top: 20px;

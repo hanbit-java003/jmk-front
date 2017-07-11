@@ -12,6 +12,11 @@ var exhibitionActivitiesInfo = require('./model/exihibition-activities-info');
 var boardActivitiesInfo = require('./model/board-activities-info');
 
 
+$('.btn-left').on('click', function () {
+    
+});
+
+
 function initExhibitionActivitiesInfo(exhibitionActivitiesInfo) {
     $('.seoul-exhibition').empty();
 
