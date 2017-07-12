@@ -3,6 +3,7 @@ require('../less/main.less');
 // 리콰이어는 모듈화 하기위해  사용한다.
 var common = require('./common');
 
+
 var noticeActivities = require('./model/notice-activities');
 var exhibitionActivities = require('./model/exhibition-activities');
 var boardActivities = require('./model/board-activities');
@@ -11,10 +12,30 @@ var noticeActivitiesInfo = require('./model/notice-activities-info');
 var exhibitionActivitiesInfo = require('./model/exihibition-activities-info');
 var boardActivitiesInfo = require('./model/board-activities-info');
 
+$('.seoul-first > li').on('click',function () {
+   var count = $('.photo > li').length;
+   var index = $('.photo > li.active').index();
+   var nextIndex = index;
 
-$('.btn-left').on('click', function () {
-    
+   if($(this).hasClass('btn-left')) {
+       nextIndex = index - 1;
+
+       if (nextIndex < 0) {
+           nextIndex = count - 1;
+       }
+   }
+   else if ($(this).hasClass('btn-right')) {
+       nextIndex = index + 1;
+
+       if(nextIndex >= count){
+           nextIndex = 0;
+       }
+   }
+   $('.photo > li').removeClass('active');
+   $($('.photo > li')[nextIndex]).addClass('active');
+
 });
+
 
 
 function initExhibitionActivitiesInfo(exhibitionActivitiesInfo) {

@@ -9,15 +9,27 @@
 
 .photo {
   position: absolute;
-  margin: 20px 0px;
+  margin: -420px 0px;
+  width: 960px;
   height: 400px;
   background-size: cover;
+}
+
+.photo>li.active {
+  position: absolute;
+  display: block;
+  width: 960px;
+  height: 400px;
+  background-size: cover;
+}
+
+.photo>li {
+  display: none;
 }
 
 .seoul-first > li:first-child {
   position: absolute;
   display: inline-block;
-  background-size: cover;
   padding: 0 10px;
   font-size: 30px;
   color: #fff;
@@ -25,6 +37,7 @@
   bottom: 0px;
   background-color: black;
   cursor: pointer;
+  z-index: 1;
 }
 .seoul-first > li:first-child:hover {
   background-color: red;
@@ -34,13 +47,13 @@
   position: absolute;
   padding: 0 10px;
   display: inline-block;
-  background-size: cover;
   font-size: 30px;
   color: #fff;
   right: 0px;
   bottom: 0px;
   background-color: black;
   cursor: pointer;
+  z-index: 1;
 }
 
 .seoul-first > li:nth-child(2):hover {
