@@ -3,13 +3,13 @@
         {{name}}
     </div>
     {{#if subMenu}}
-    <ul class="seoul-sub-menu{{#if board}} board{{/if}}">
+    <ul class="seoul-sub-menu">
         {{#each subMenu ~}}
-            <li>{{name}}</li>
+            <li seoul-id="{{id}}">{{name}}</li>
             {{#if subSub ~}}
                 <ul class="seoul-sub-sub">
                     {{#each subSub~}}
-                        <li>{{name}}</li>
+                        <li seoul-id="{{id}}">{{name}}</li>
                     {{~/each}}
                 </ul>
             {{/if}}
