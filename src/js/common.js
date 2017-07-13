@@ -24,6 +24,30 @@ function initMenu() {
 
 initMenu();
 
+$('.seoul-first > li').on('click',function () {
+    var count = $('.photo > li').length;
+    var index = $('.photo > li.active').index();
+    var nextIndex = index;
+
+    if($(this).hasClass('btn-left')) {
+        nextIndex = index - 1;
+
+        if (nextIndex < 0) {
+            nextIndex = count - 1;
+        }
+    }
+    else if ($(this).hasClass('btn-right')) {
+        nextIndex = index + 1;
+
+        if(nextIndex >= count){
+            nextIndex = 0;
+        }
+    }
+    $('.photo > li').removeClass('active');
+    $($('.photo > li')[nextIndex]).addClass('active');
+
+});
+
 
 $('.seoul-logo> img').on('click', function () {
     // 왼쪽 상단 로고 버튼을 누르면 본 페이지로 이동.

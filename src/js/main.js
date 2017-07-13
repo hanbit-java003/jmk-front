@@ -9,46 +9,12 @@ var exhibitionActivities = require('./model/exhibition-activities');
 var boardActivities = require('./model/board-activities');
 
 var noticeActivitiesInfo = require('./model/notice-activities-info');
-var exhibitionActivitiesInfo = require('./model/exihibition-activities-info');
 var boardActivitiesInfo = require('./model/board-activities-info');
 
-$('.seoul-first > li').on('click',function () {
-   var count = $('.photo > li').length;
-   var index = $('.photo > li.active').index();
-   var nextIndex = index;
-
-   if($(this).hasClass('btn-left')) {
-       nextIndex = index - 1;
-
-       if (nextIndex < 0) {
-           nextIndex = count - 1;
-       }
-   }
-   else if ($(this).hasClass('btn-right')) {
-       nextIndex = index + 1;
-
-       if(nextIndex >= count){
-           nextIndex = 0;
-       }
-   }
-   $('.photo > li').removeClass('active');
-   $($('.photo > li')[nextIndex]).addClass('active');
-
-});
 
 
 
-function initExhibitionActivitiesInfo(exhibitionActivitiesInfo) {
-    $('.seoul-exhibition').empty();
 
-    var template=require('../template/main/activity-info.hbs');
-
-        var html = template(exhibitionActivitiesInfo[0]);
-
-        $('.seoul-exhibition').append(html);
-
-
-}
 
 function initBoardActivitiesInfo(boardActivitiesInfo) {
     $('.seoul-border').empty();
@@ -115,7 +81,6 @@ function initNoticeActivities(noticeActivities) {
         $('.seoul-notice-contents').append(html);
     }
 }
-initExhibitionActivitiesInfo(exhibitionActivitiesInfo);
 initBoardActivitiesInfo(boardActivitiesInfo);
 initNoticeActivitiesInfo(noticeActivitiesInfo);
 

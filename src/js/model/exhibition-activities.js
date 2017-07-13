@@ -12,5 +12,4 @@ module.exports=[{
     title: 'EXHIBTION',
     sub: '오치균은 묻지않고 다만 그린다',
     date: '2017-03-18 ~ 2017-09-03'
-
 }];
