@@ -7,7 +7,7 @@ module.exports = [{
         id:'artGallery',
         name: '미술관소개',
         subSub: [{
-            id:'artGallery1',
+            id:'artGallery',
             name: '·미술관소개'
         },{
             id:'artGallery2',

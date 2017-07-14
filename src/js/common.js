@@ -24,6 +24,42 @@ function initMenu() {
 
 initMenu();
 
+//로그인 관리자
+$('.seoul-footer-btn').on('click', function () {
+    $('body').append('<div class="overlay-layer dark-layer"></div>');
+   // $('body').css('overflow','hidden');
+
+    var managerLayer=require('../template/manager-layer.hbs');
+
+    $('body').append(managerLayer);
+
+    $('.manager-layer').animate({
+        bottom: '0px'
+    },{
+        duration: 500,
+        complete: function () {
+            $('.overlay-layer').on('click', function () {
+                $('.manager-layer').animate({
+                    bottom:'-337'
+                },{
+                    duration: 500,
+                    complete : function () {
+                        $('.manager-layer').remove();
+                        $('.overlay-layer').remove();
+                        $('body').css('overflow', 'auto');
+                    }
+                })
+            });
+
+        }
+    })
+});
+
+
+
+
+
+// 사진들을 옆으로 바꾸기위한 버튼들.
 $('.seoul-first > li').on('click',function () {
     var count = $('.photo > li').length;
     var index = $('.photo > li.active').index();
@@ -55,8 +91,10 @@ $('.seoul-logo> img').on('click', function () {
 });
 
 $('.seoul-move').on('click', function () {
-    // 왼쪽 상단 로고 버튼을 누르면 본 페이지로 이동.
     location.href = './';
+});
+$('.seoul-logo2').on('click', function(){
+   location.href = './';
 });
 
 
