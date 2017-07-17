@@ -230,7 +230,11 @@ ul {
 .seoul-sub-menu >li:hover {
   margin: 2px;
   color: red;
-  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.seoul-sub-menu >li:hover:nth-child(n+2) {
+  padding: 0 -3px -3px -3px;
+  color: red;
 }
 
 
@@ -304,7 +308,6 @@ ul {
   right: 0px;
   cursor: pointer;
 }
-
 .seoul-copyright {
   margin-top: 30px;
   right: 60px;
@@ -318,4 +321,8 @@ ul {
   cursor: pointer;
   color: #737373;
   font-size: 10px;
+}
+
+.seoul-footer-btn:hover {
+  color: red;
 }

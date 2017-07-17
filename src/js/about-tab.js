@@ -13,3 +13,30 @@ function initMenu() {
 
 initMenu();
 
+
+
+$('.about-menu > li').on('click', function (event) {
+    event.stopPropagation();  // 상위 태그의 
+    // 이벤트를 막아주는 함수
+
+    var aboutId =$(this).attr('about-id');
+
+    location.href='./seoulmenu.html?id=' + aboutId;
+});
+
+$('.about-menu-sub > li').on('click', function (event) {
+    event.stopPropagation();
+
+    var aboutId =$(this).attr('about-id');
+
+    location.href='./seoulmenu.html?id=' + aboutId;
+});
+
+
+$('.about-menu-sub-sub > li').on('click', function (event) {
+    event.stopPropagation();
+
+    var aboutId =$(this).attr('about-id');
+
+    location.href='./seoulmenu.html?id=' + aboutId;
+});

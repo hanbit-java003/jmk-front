@@ -5,7 +5,7 @@
     {{#if subMenu}}
     <ul class="seoul-sub-menu">
         {{#each subMenu ~}}
-            <li seoul-id="{{id}}">{{name}}</li>
+            <li seoul-id="{{id}}">{{name~}}
             {{#if subSub ~}}
                 <ul class="seoul-sub-sub">
                     {{#each subSub~}}
@@ -13,6 +13,7 @@
                     {{~/each}}
                 </ul>
             {{/if}}
+            </li>
         {{~/each}}
     </ul>
     {{/if}}

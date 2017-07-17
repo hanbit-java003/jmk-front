@@ -27,7 +27,7 @@ initMenu();
 //로그인 관리자
 $('.seoul-footer-btn').on('click', function () {
     $('body').append('<div class="overlay-layer dark-layer"></div>');
-   // $('body').css('overflow','hidden');
+    $('body').css('overflow','hidden');
 
     var managerLayer=require('../template/manager-layer.hbs');
 
@@ -90,21 +90,24 @@ $('.seoul-logo> img').on('click', function () {
     location.href = './';
 });
 
-$('.seoul-move').on('click', function () {
+/*$('.seoul-move').on('click', function () {
     location.href = './';
-});
+});*/
+
 $('.seoul-logo2').on('click', function(){
    location.href = './';
 });
 
 
-$('.seoul-sub-menu > li').on('click', function () {
+$('.seoul-sub-menu > li').on('click', function (event) {
+    event.stopPropagation();
    var seoulId =$(this).attr('seoul-id');
 
    location.href='./seoulmenu.html?id=' + seoulId;
 });
 
-$('.seoul-sub-sub > li').on('click', function () {
+$('.seoul-sub-sub > li').on('click', function (event) {
+    event.stopPropagation();
     var seoulId =$(this).attr('seoul-id');
 
     location.href='./seoulmenu.html?id=' + seoulId;
