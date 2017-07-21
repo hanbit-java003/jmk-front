@@ -6,6 +6,8 @@ var common = require('./common');
 
 var tab = require('./about-tab');
 
+var facilitiesTab = require('./facilities2-tab');
+
 var URLSearchParams = require('url-search-params');
 
 var params = new URLSearchParams(location.search);
