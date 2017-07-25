@@ -1,4 +1,11 @@
 var menus = require('./model/about-menu');
+var visitMenus = require('./model/visit-menu');
+
+var URLSearchParams = require('url-search-params');
+
+var params = new URLSearchParams(location.search);
+var allId = params.get('sub-id');
+
 
 function initMenu() {
     $('.about-menu').empty();
@@ -12,8 +19,20 @@ function initMenu() {
 }
 
 initMenu();
+if('visit'===allId){
+function visitInitMenu() {
+    $(initMenu()).empty();
 
+    var template = require('../template/seoulmenu/about-menu.hbs');
+    var menu = $('.about-menu');
 
+    var menuHtml = template(visitMenus);
+    menu.html(menuHtml);
+
+}
+
+visitInitMenu();
+}
 
 $('.about-menu > li').on('click', function (event) {
     event.stopPropagation();  // 상위 태그의 
@@ -21,7 +40,9 @@ $('.about-menu > li').on('click', function (event) {
 
     var aboutId =$(this).attr('about-id');
 
-    location.href='./seoulmenu.html?id=' + aboutId;
+    var subId=$(this).attr('sub-id');
+
+    location.href='./seoulmenu.html?id=' + aboutId+(subId ? "&sub-id="+subId : '');
 });
 
 $('.about-menu-sub > li').on('click', function (event) {

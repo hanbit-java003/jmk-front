@@ -102,8 +102,9 @@ $('.seoul-logo2').on('click', function(){
 $('.seoul-sub-menu > li').on('click', function (event) {
     event.stopPropagation();
    var seoulId =$(this).attr('seoul-id');
+   var subId=$(this).attr('sub-id');
 
-   location.href='./seoulmenu.html?id=' + seoulId;
+   location.href='./seoulmenu.html?id=' + seoulId+(subId ? "&sub-id="+subId : '');
 });
 
 $('.seoul-sub-sub > li').on('click', function (event) {

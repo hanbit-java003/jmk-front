@@ -1,5 +1,5 @@
 {{#each this~}}
-    <li about-id="{{id}}">{{aboutMenu~}}
+    <li about-id="{{id}}" {{#if subId}}sub-id="{{subId}}"{{/if}}>{{aboutMenu~}}
         {{~#if aboutMenuSub~}}
             <ul class="about-menu-sub">
                 {{~#each aboutMenuSub~}}

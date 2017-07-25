@@ -28,10 +28,12 @@ module.exports = [{
     name: 'VISIT',
     subMenu: [{
         id:'preview',
-        name: '관람안내'
+        name: '관람안내',
+        subId: 'visit'
     },{
         id:'com',
-        name: '오시는길'
+        name: '오시는길',
+        subId: 'visit'
     }]
 },{
     name: 'EXHIBITION'
