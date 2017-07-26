@@ -98,6 +98,13 @@ $('.seoul-logo2').on('click', function(){
    location.href = './';
 });
 
+$('.seoul-menu-text').on('click', function () {
+    var seoulId =$(this).attr('seoul-id');
+    var subId=$(this).attr('sub-id');
+
+    location.href='./seoulmenu.html?id=' + seoulId+(subId ? "&sub-id="+subId : '');
+})
+
 
 $('.seoul-sub-menu > li').on('click', function (event) {
     event.stopPropagation();

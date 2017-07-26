@@ -1,5 +1,7 @@
 var menus = require('./model/about-menu');
 var visitMenus = require('./model/visit-menu');
+var noticeMenus = require('./model/notice-menu');
+var boardMenus = require('./model/board-menu');
 
 var URLSearchParams = require('url-search-params');
 
@@ -20,18 +22,43 @@ function initMenu() {
 
 initMenu();
 if('visit'===allId){
-function visitInitMenu() {
-    $(initMenu()).empty();
+    function visitInitMenu() {
+        $(initMenu()).empty();
 
-    var template = require('../template/seoulmenu/about-menu.hbs');
-    var menu = $('.about-menu');
+        var template = require('../template/seoulmenu/about-menu.hbs');
+        var menu = $('.about-menu');
 
-    var menuHtml = template(visitMenus);
-    menu.html(menuHtml);
+        var menuHtml = template(visitMenus);
+        menu.html(menuHtml);
 
+    }
+    visitInitMenu();
 }
 
-visitInitMenu();
+if('notice'===allId){
+    function noticeInitMenu() {
+        $(initMenu()).empty();
+
+        var template = require('../template/seoulmenu/about-menu.hbs');
+        var menu = $('.about-menu');
+
+        var menuHtml = template(noticeMenus);
+        menu.html(menuHtml);
+    }
+    noticeInitMenu();
+}
+
+if('board'===allId){
+    function boardInitMenu() {
+        $(initMenu()).empty();
+
+        var template = require('../template/seoulmenu/about-menu.hbs');
+        var menu = $('.about-menu');
+
+        var menuHtml = template(boardMenus);
+        menu.html(menuHtml);
+    }
+    boardInitMenu();
 }
 
 $('.about-menu > li').on('click', function (event) {
@@ -61,3 +88,7 @@ $('.about-menu-sub-sub > li').on('click', function (event) {
 
     location.href='./seoulmenu.html?id=' + aboutId;
 });
+
+
+
+

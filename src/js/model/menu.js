@@ -1,4 +1,5 @@
 module.exports = [{
+    id:'greetings',
     name: 'ABOUT',
     subMenu: [{
         id:'greetings',
@@ -25,7 +26,9 @@ module.exports = [{
         }]
     }]
 },{
+    id: 'preview',
     name: 'VISIT',
+    subId: 'visit',
     subMenu: [{
         id:'preview',
         name: '관람안내',
@@ -36,20 +39,29 @@ module.exports = [{
         subId: 'visit'
     }]
 },{
-    name: 'EXHIBITION'
+    id: 'exhibition',
+    name: 'EXHIBITION',
+    subId: 'exhibition'
 },{
-    name: 'NOTICE'
+    id: 'notice',
+    name: 'NOTICE',
+    subId: 'notice'
 },{
+    id: 'pressRelease',
     name: 'BOARD',
+    subId: 'board',
     subMenu: [{
         id:'pressRelease',
-        name: '언론보도'
+        name: '언론보도',
+        subId: 'board'
     },{
         id:'referenceRoom',
-        name: '자료실'
+        name: '자료실',
+        subId: 'board'
     },{
         id:'event',
-        name: '공연 및 이벤트'
+        name: '공연 및 이벤트',
+        subId: 'board'
     }]
 }];
     
