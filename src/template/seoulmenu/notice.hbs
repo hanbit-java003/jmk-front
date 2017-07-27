@@ -1,0 +1,18 @@
+<ul class="notice-info">
+    <li>
+        <div class="notice-select">말머리선택</div>
+        <div class="notice-title">제목</div>
+        <div class="notice-writer">작성자</div>
+        <div class="notice-date">작성일</div>
+        <div class="notice-lookup">조회</div>
+    </li>
+    {{~#each this~}}
+    <li>
+        <div class="notice-select">{{no}}</div>
+        <div class="notice-title">{{title}}</div>
+        <div class="notice-writer">{{writer}}</div>
+        <div class="notice-date">{{datedt}}</div>
+        <div class="notice-lookup">{{look}}</div>
+    </li>
+    {{~/each~}}
+</ul>

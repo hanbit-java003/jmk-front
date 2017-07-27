@@ -87,5 +87,23 @@ function initCom() {
 initCom();
 }
 
+$.ajax({
+    url: '/api/seoul/notice',
+    success: function (result) {
+        initNotice(result);
+        console.log(result);
+
+    }
+});
+
+function initNotice(notices) {
+    var template = require('../template/seoulmenu/notice.hbs');
+    var noticeMain = $('.notice-main');
+
+    noticeMain.html(template(notices));
+}
+
+
+
 
 
