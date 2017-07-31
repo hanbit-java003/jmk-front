@@ -86,7 +86,7 @@ function initCom() {
 
 initCom();
 }
-
+if(aboutId === 'notice'){
 $.ajax({
     url: '/api/seoul/notice',
     success: function (result) {
@@ -102,7 +102,7 @@ function initNotice(notices) {
 
     noticeMain.html(template(notices));
 }
-
+}
 
 
 
