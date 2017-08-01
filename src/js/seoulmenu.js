@@ -13,6 +13,7 @@ var URLSearchParams = require('url-search-params');
 
 var params = new URLSearchParams(location.search);
 var aboutId = params.get('id');
+var allId = params.get('sub-id');
 
 var model = require('./model/all/' + aboutId);
 
@@ -91,7 +92,7 @@ $.ajax({
     url: '/api/seoul/notice',
     success: function (result) {
         initNotice(result);
-        console.log(result);
+        //console.log(result);
 
     }
 });
@@ -103,6 +104,22 @@ function initNotice(notices) {
     noticeMain.html(template(notices));
 }
 }
+
+if(allId === 'board') {
+    $.ajax({
+        url: '/api/seoul/'+aboutId,
+        success: function (result) {
+            initBoard(result);
+        }
+    });
+    function initBoard(boards) {
+        var template = require('../template/seoulmenu/board.hbs');
+        var boardMain = $('.board-main');
+
+        boardMain.html(template(boards));
+    }
+}
+
 
 
 
