@@ -3,6 +3,11 @@ require('../less/main.less');
 // 리콰이어는 모듈화 하기위해  사용한다.
 var common = require('./common');
 
+var URLSearchParams = require('url-search-params');
+
+var params = new URLSearchParams(location.search);
+var aboutId = params.get('id');
+var allId = params.get('sub-id');
 
 var noticeActivities = require('./model/notice-activities');
 var exhibitionActivities = require('./model/exhibition-activities');
@@ -10,8 +15,6 @@ var boardActivities = require('./model/board-activities');
 
 var noticeActivitiesInfo = require('./model/notice-activities-info');
 var boardActivitiesInfo = require('./model/board-activities-info');
-
-
 
 
 
@@ -87,3 +90,20 @@ initNoticeActivitiesInfo(noticeActivitiesInfo);
 initBoardActivities(boardActivities);
 initExhibitionActivities(exhibitionActivities);
 initNoticeActivities(noticeActivities);
+
+
+
+$('.seoul-notice2').on('click',function () {
+    var aboutId =$(this).attr('about-id');
+
+    var subId=$(this).attr('sub-id');
+
+    location.href='./seoulmenu.html?id=' + aboutId+(subId ? '&sub-id='+subId : '');
+});
+
+$('.seoul-menu-title').on('click',function () {
+    var aboutId = $(this).attr('about-id');
+    var subId=$(this).attr('sub-id');
+
+    location.href = './seoulmenu.html?id='+ aboutId+'&sub-id='+subId;
+});

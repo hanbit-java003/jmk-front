@@ -102,7 +102,7 @@ function initNotice(notices) {
     var noticeMain = $('.notice-main');
 
     noticeMain.html(template(notices));
-}
+    }
 }
 
 if(allId === 'board') {

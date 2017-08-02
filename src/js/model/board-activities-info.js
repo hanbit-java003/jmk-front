@@ -3,5 +3,7 @@
  */
 module.exports=[{
     title: 'BOARD',
-    sub: 'VIEW BOARD →'
+    sub: 'VIEW BOARD →',
+    id: 'pressRelease',
+    subId: 'board'
 }];

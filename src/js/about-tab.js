@@ -61,6 +61,14 @@ if('board'===allId){
     boardInitMenu();
 }
 
+if('exhibition' === allId){
+    function exhibitionInitMenu() {
+        $(initMenu()).empty();
+
+    }
+    exhibitionInitMenu();
+}
+
 $('.about-menu > li').on('click', function (event) {
     event.stopPropagation();  // 상위 태그의 
     // 이벤트를 막아주는 함수
