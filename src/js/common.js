@@ -90,9 +90,11 @@ $('.seoul-logo> img').on('click', function () {
     location.href = './';
 });
 
-/*$('.seoul-move').on('click', function () {
-    location.href = './';
-});*/
+$('.seoul-move').on('click', function () {
+    var seoulId =$(this).attr('seoul-id');
+
+    location.href = location.href +(seoulId ? "?id" : '');
+});
 
 $('.seoul-logo2').on('click', function(){
    location.href = './';
