@@ -9,6 +9,23 @@ var params = new URLSearchParams(location.search);
 var allId = params.get('sub-id');
 
 
+
+if(allId !== 'exhibition'){
+    function init() {
+        $('.seoul-section-info').empty();
+        var template = require('../template/seoulmenu.hbs');
+        var seoulmenu = $('.seoul-section-info');
+
+        seoulmenu.html(template({
+            aboutMenu: 'about-menu',
+            aboutInfo: 'about-info'
+        }));
+    }
+
+    init();
+}
+
+
 function initMenu() {
     $('.about-menu').empty();
 
@@ -61,13 +78,6 @@ if('board'===allId){
     boardInitMenu();
 }
 
-if('exhibition' === allId){
-    function exhibitionInitMenu() {
-        $(initMenu()).empty();
-
-    }
-    exhibitionInitMenu();
-}
 
 $('.about-menu > li').on('click', function (event) {
     event.stopPropagation();  // 상위 태그의 

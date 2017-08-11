@@ -104,8 +104,11 @@ $('.seoul-menu-text').on('click', function () {
     var seoulId =$(this).attr('seoul-id');
     var subId=$(this).attr('sub-id');
 
+
     location.href='./seoulmenu.html?id=' + seoulId+(subId ? "&sub-id="+subId : '');
-})
+
+
+});
 
 
 $('.seoul-sub-menu > li').on('click', function (event) {
@@ -132,3 +135,21 @@ $('.seoul-menus > li').on('mouseover' , function () {
 $('.seoul-menus > li').on('mouseout' , function () {
     $(this).find('.seoul-sub-menu').hide();
 });
+
+/*
+$('.seoul-menus > li').on('click', function () {
+
+    if($(this).hasClass('active')) {
+        return;
+    }
+
+    var menuIndex = $(this).index();
+
+    var seoulMenu = $(this).parent('.seoul-menus').find('li');
+
+    seoulMenu.removeClass('active');
+
+    $(seoulMenu[menuIndex]).addClass('active');
+
+
+});*/

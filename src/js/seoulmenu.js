@@ -19,7 +19,6 @@ var model = require('./model/all/' + aboutId);
 
 
 
-
 function initAbout() {
     $('.about-info1').html(model.name);
     $('.about-info2').html(model.contents);
