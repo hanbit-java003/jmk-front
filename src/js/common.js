@@ -105,9 +105,8 @@ $('.seoul-menu-text').on('click', function () {
     var subId=$(this).attr('sub-id');
 
 
+
     location.href='./seoulmenu.html?id=' + seoulId+(subId ? "&sub-id="+subId : '');
-
-
 });
 
 
