@@ -88,9 +88,24 @@ initBoardActivitiesInfo(boardActivitiesInfo);
 initNoticeActivitiesInfo(noticeActivitiesInfo);
 
 initBoardActivities(boardActivities);
-initExhibitionActivities(exhibitionActivities);
+
 initNoticeActivities(noticeActivities);
 
+
+$.ajax({
+    url: '/api/seoul/exhibtion',
+    success: function (result) {
+        initExhibitionActivities(result);
+
+
+        $('.seoul-menu-title').on('click',function () {
+            var aboutId = $(this).attr('about-id');
+            var subId=$(this).attr('sub-id');
+
+            location.href = './seoulmenu.html?id='+ aboutId+'&sub-id='+subId;
+        });
+    }
+});
 
 
 $('.seoul-notice2').on('click',function () {
@@ -101,9 +116,3 @@ $('.seoul-notice2').on('click',function () {
     location.href='./seoulmenu.html?id=' + aboutId+(subId ? '&sub-id='+subId : '');
 });
 
-$('.seoul-menu-title').on('click',function () {
-    var aboutId = $(this).attr('about-id');
-    var subId=$(this).attr('sub-id');
-
-    location.href = './seoulmenu.html?id='+ aboutId+'&sub-id='+subId;
-});
