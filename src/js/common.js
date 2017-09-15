@@ -33,27 +33,120 @@ $('.seoul-footer-btn').on('click', function () {
     var managerLayer=require('../template/manager-layer.hbs');
 
     $('body').append(managerLayer);
-
     $('.manager-layer').animate({
         bottom: '0px'
     },{
         duration: 500,
         complete: function () {
-            $('.overlay-layer').on('click', function () {
-                $('.manager-layer').animate({
-                    bottom:'-337'
-                },{
-                    duration: 500,
-                    complete : function () {
-                        $('.manager-layer').remove();
-                        $('.overlay-layer').remove();
-                        $('body').css('overflow', 'auto');
-                    }
-                })
+            $('.seoul-manager-toggle').on('click', function () {
+               $('.sign-in').toggle();
+               $('.sign-up').toggle();
             });
 
+            $('#seoul-sign-up').on('click', function () {
+                signUp();
+            });
+            
+            $('#seoul-sign-in').on('click', function () {
+               signIn();
+            });
+
+            $('.seoul-manager-cancel').on('click', function () {
+                closeManagerLayer();
+            });
+
+            $('.overlay-layer').on('click', function () {
+                closeManagerLayer();
+            });
+        }
+    });
+});
+
+function signIn() {
+    var id = $('#seoul-sign-in-id').val().trim();
+    var pw = $('#seoul-sign-in-pw').val().trim();
+    var remember = $('#seoul-sign-in-remember').prop('checked');
+
+    if (!id) {
+        alert('아이디를 입력해라');
+        $('#seoul-sign-in-id').focus();
+        return;
+    }else if (!pw) {
+        alert('비밀번호를 입력해라');
+        $('#seoul-sign-in-pw').focus();
+        return;
+    };
+
+    $.ajax({
+        url: '/api/manager/signin',
+        method: 'POST',
+        data: {
+            email: id,
+            password: pw,
+            remember: remember
+        },
+        success: function (result) {
+            alert(result.email + '님 잘 관리 하세요.');
+            closeManagerLayer();
+        },
+        error: function (jqXHR) {
+            alert(jqXHR.responseJSON.message);
         }
     })
+}
+
+function signUp(){
+    var id = $('#seoul-sign-up-id').val().trim();
+    var pw = $('#seoul-sign-up-pw').val().trim();
+    var agree = $('#seoul-sign-up-agree').prop('checked');
+
+    if (!id) {
+        alert('아이디를 입력해라');
+        $('#seoul-sign-up-id').focus();
+        return;
+    }else if (!pw) {
+        alert('비밀번호를 입력해라');
+        $('#seoul-sign-up-pw').focus();
+        return;
+    }else if(!agree){
+        alert('약관의 동의 하셔야 합니다.');
+        return;
+    };
+
+    $.ajax({
+        url: '/api/manager/signup',
+        method: 'POST',
+        data: {
+            email: id,
+            password: pw
+        },
+        success: function (result) {
+            alert('관리자가 된걸 축하드립니다.');
+            closeManagerLayer();
+        },
+        error: function (jqXHR) {
+            alert(jqXHR.responseJSON.message);
+        }
+    });
+}
+
+function closeManagerLayer() {
+
+    $('.manager-layer').animate({
+        bottom:'-337px'
+    },{
+        duration: 500,
+        complete : function () {
+            $('.manager-layer').remove();
+            $('.overlay-layer').remove();
+            $('body').css('overflow', 'auto');
+        }
+    });
+
+}
+
+$('.seoul-manager-toggle').on('click', function () {
+   $ ('.sign-up').toggle();
 });
 
 function init(){
