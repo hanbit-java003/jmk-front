@@ -3,6 +3,7 @@
  */
 
 var menus = require('./model/menu');
+var carousel = require('./carousel.js');
 
 
 
