@@ -21,7 +21,7 @@ function init(carouselElement, _slides, _createSlideElement,options) {
     }
 
     var firstSlideElement = (createSlideElement(slides[currentSlideIndex]));
-    carouselElement.append(firstSlideElement);
+    carousel.append(firstSlideElement);
 
     timer = setTimeout(function () {
         slide('left');
