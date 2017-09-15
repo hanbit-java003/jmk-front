@@ -3,7 +3,7 @@
  */
 
 var menus = require('./model/menu');
-var carousel = require('./carousel.js');
+var carousel = require('./seoul-carousel.js');
 
 
 
@@ -56,11 +56,33 @@ $('.seoul-footer-btn').on('click', function () {
     })
 });
 
+function init(){
+    carousel.init($('.seoul-photos'),[{
+        img: '../img/face1.PNG'
+    }, {
+        img: '../img/face2.PNG'
+    }, {
+        img: '../img/face3.PNG'
+    }, {
+        img: '../img/face4.PNG'
+    }],function (slide) {
+        var slideElement = $('<li></li>');
+        slideElement.css('background-image', 'url('+slide.img+')');
+
+        return slideElement;
+    },{
+        slideDuration: 1000,
+        slideInterval: 5000
+    });
+}
+
+init();
 
 
 
 
 // 사진들을 옆으로 바꾸기위한 버튼들.
+/*
 $('.seoul-first > li').on('click',function () {
     var count = $('.photo > li').length;
     var index = $('.photo > li.active').index();
@@ -84,6 +106,7 @@ $('.seoul-first > li').on('click',function () {
     $($('.photo > li')[nextIndex]).addClass('active');
 
 });
+*/
 
 
 $('.seoul-logo> img').on('click', function () {
