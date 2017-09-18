@@ -1,0 +1,91 @@
+@import "common.less";
+@import "seoul-tab.less";
+
+
+.seoul-setting-container {
+  width : 960px;
+  margin: 20px auto;
+
+  .seoul-tab-btns > li {
+    text-align: center;
+    min-width: 150px;
+  }
+
+  .seoul-tab-contents {
+    background-color: #edeef2;
+
+    li {
+      padding: 50px 100px 200px 100px;
+    }
+  }
+}
+
+.seoul-setting-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.seoul-setting-avatar > div {
+  text-align: center;
+}
+
+.seoul-setting-avatar-border {
+  display: inline-block;
+  width: 110px;
+  height: 110px;
+  border-radius: 55px;
+  padding: 4px;
+  margin: 15px 0px 5px 0px;
+  border: solid 1px #47cbad;
+}
+
+.seoul-setting-avatar-img {
+  display: inline-block;
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+  background-image: url(../img/avatar.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+#seoul-setting-avatar-select {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#seoul-setting-avatar-select:hover {
+  color: hotpink;
+}
+
+.seoul-setting-email {
+  font-weight: bold;
+  text-align: center;
+}
+
+.seoul-setting-btns {
+  padding-top: 20px;
+  text-align: right;
+
+  button {
+    min-width: 150px;
+    padding: 5px 0px;
+    color: #fff;
+    font-weight: bold;
+    border: 0;
+  }
+}
+
+.seoul-setting-cancel {
+  background-color: #191919;
+}
+
+.seoul-setting-save {
+  background-color: hotpink;
+}
+
+.seoul-setting-cancel:hover,
+.seoul-setting-save:hover {
+  background-color: #3666c6;
+}

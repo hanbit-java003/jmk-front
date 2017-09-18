@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{> template/title}}</title>
+</head>
+<body>
+{{> template/header photos= falss}}
+    <div class="seoul-setting-container">
+        <ul class="seoul-tab-btns ht-tab-btns">
+            <li class="active">관리자 설정</li>
+        </ul>
+        <ul class="seoul-tab-contents ht-tab-contents">
+            <li class="active">
+                <div class="seoul-setting-title">
+                    관리자 정보 변경
+                </div>
+                <div class="seoul-setting-avatar">
+                    <div class="seoul-setting-avatar-picture">
+                        <div class="seoul-setting-avatar-border">
+                            <div class="seoul-setting-avatar-img"></div>
+                        </div>
+                    </div>
+                    <div class="seoul-setting-avatar-btn">
+                        <i id="seoul-setting-avatar-select" class="fa fa-camera"></i>
+                    </div>
+                </div>
+                <div class="seoul-setting-email">
+                    jmkjmk7410@gmail.com
+                </div>
+                <div class="form-group">
+                    <label for="seoul-manager-name-input">이름</label>
+                    <input type="text" class="form-control" id="seoul-manager-name-input">
+                </div>
+                <div class="form-group">
+                    <label for="seoul-manager-cpw-input">현재 비밀번호</label>
+                    <input type="password" class="form-control" id="seoul-manager-cpw-input">
+                </div>
+                <div class="form-group">
+                    <label for="seoul-manager-npw-input">새 비밀번호</label>
+                    <input type="password" class="form-control" id="seoul-manager-npw-input">
+                </div>
+                <div class="form-group">
+                    <label for="seoul-manager-npwc-input">새 비밀번호 확인</label>
+                    <input type="password" class="form-control" id="seoul-manager-npwc-input">
+                </div>
+                <div class="seoul-setting-btns">
+                    <button class="seoul-setting-cancel">취소</button>
+                    <button class="seoul-setting-save">저장</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+{{> template/footer}}
+</body>
+</html>

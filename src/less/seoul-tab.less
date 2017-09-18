@@ -1,0 +1,29 @@
+
+
+.ht-tab-btns {
+  border-bottom: solid 1px lightpink;
+}
+
+.ht-tab-btns > li {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #999;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+// 붙여서 li 뒤에 active붙이면 li면서도 같은 속성을 띄운다.
+.ht-tab-btns > li.active {
+  color: #fff;
+  background-color: lightpink;
+}
+
+.ht-tab-contents > li {
+  // 기본적으로 디스플레이를 넌으로 주는 이유는 안보이게 하기위해서
+  display: none;
+}
+// 엑티브있는 녀석만 보이게 하기위해서
+.ht-tab-contents > li.active {
+  display: block;
+}

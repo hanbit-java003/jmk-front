@@ -16,6 +16,9 @@ const pages = [{
 }, {
     html: 'seoulmenu',
     script: 'seoulmenu'
+}, {
+    html: 'setting',
+    script: 'setting'
 }];
 
 module.exports = {

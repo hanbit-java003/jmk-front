@@ -5,6 +5,23 @@
 var menus = require('./model/menu');
 var carousel = require('./seoul-carousel.js');
 
+function ajax(options) {
+
+    if (!options.error) {
+        options.error = function(jqXHR) {
+            var errorCode = jqXHR.responseJSON.errorCode;
+
+            if (errorCode === 403) {
+                $('.seoul-footer-btn').click();
+            }
+
+            alert(jqXHR.responseJSON.message);
+        };
+    }
+
+    $.ajax(options);
+}
+
 
 
 function initMenu() {
@@ -63,6 +80,10 @@ $('.seoul-footer-btn').on('click', function () {
                     });
                 }
                 else {
+                    $('#seoul-setting').on('click', function () {
+                        location.href = '/setting.html';
+                    });
+
                     $('#seoul-sign-out').on('click', function () {
                        signOut();
                     });
@@ -196,7 +217,7 @@ function init(){
         return slideElement;
     },{
         slideDuration: 1000,
-        slideInterval: 5000
+        slideInterval: 2000
     });
 }
 
@@ -282,6 +303,11 @@ $('.seoul-menus > li').on('mouseover' , function () {
 $('.seoul-menus > li').on('mouseout' , function () {
     $(this).find('.seoul-sub-menu').hide();
 });
+
+
+module.exports = {
+    ajax : ajax
+}
 
 /*
 $('.seoul-menus > li').on('click', function () {
