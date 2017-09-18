@@ -36,6 +36,7 @@ ul {
 .manager-info{
   border: solid 2px #efefef;
   background-color: #fff;
+  min-height: 337px;
 }
 
 .manager-title {
@@ -47,6 +48,7 @@ ul {
 .manager-main {
   margin: 30px;
   border: solid 2px #dfdfdf;
+  min-height: 232px;
 }
 .sign-up {
   display: none;
@@ -55,6 +57,7 @@ ul {
 .manager-login {
   margin: 30px 30px 20px 30px;
   background-color: #efefef;
+  min-height: 136px;
 }
 
 .manager-login-btn {
@@ -66,9 +69,10 @@ ul {
   display: inline-block;
   margin-right: 3px;
   color: #fff;
-  width: 40px;
+  min-width: 40px;
   border: solid 1px #666666;
   background-color: #646464;
+
 }
 .seoul-manager-login {
   font-size: 12px;
@@ -138,6 +142,43 @@ ul {
 .manager-find input[type=checkbox] {
   margin-top: 2px;
 }
+
+.seoul-bottom-menu-list {
+  padding-top: 50px;
+  padding-right: 100px;
+  text-align: center;
+}
+
+.seoul-bottom-menu-list > li{
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.seoul-bottom-menu-list > li:hover {
+  color: hotpink;
+}
+
+.seoul-signed-in {
+  position: absolute;
+  padding-top: 20px;
+  padding-left: 100px;
+  text-align: center;
+
+  .seoul-manager-icon {
+    display: inline-block;
+    width:60px;
+    height: 60px;
+    background-color: #4aa7ff;
+    color: #3666c6;
+    border-radius: 30px;
+    font-size: 60px;
+    overflow: hidden;
+  }
+}
+
+
 
 
 

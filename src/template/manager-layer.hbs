@@ -1,63 +1,96 @@
 <div class="manager-layer">
     <div class="center">
         <div class="manager-info">
-            <div class="manager-title">
-                관리자 로그인
-            </div>
-            <div class="sign-in manager-main">
-                <div class="manager-login">
-                    <ul class="manager-idpw">
-                        <li>
-                            <div>아이디</div>
-                            <input id="seoul-sign-in-id" type="text">
-                        </li>
-                        <li>
-                            <div>비밀번호</div>
-                            <input id="seoul-sign-in-pw" type="password">
-                        </li>
-                    </ul>
-                    <div class="manager-find checkbox">
-                        <label>
-                            <input id="seoul-sign-in-remember" type="checkbox">
-                            아이디/비밀번호 기억
-                        </label>
-                        <label>
-                            <input type="checkbox">
-                            보안로그인(SSL)
-                        </label>
+            {{#if signedIn}}
+                <div class="sign-in manager-main">
+                    <div class="manager-title">
+                        {{email}}님 환영합니다.
+                    </div>
+                    <div class="manager-login">
+                        <div class="seoul-bottom-menu">
+                            <div class="seoul-signed-in">
+                                <div class="seoul-manager-icon">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="seoul-manager-email">
+                                    {{email}}님
+                                </div>
+                            </div>
+                            <ul class="seoul-bottom-menu-list">
+                                    <li>관리자 Page</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="manager-login-btn">
+                        <button class="seoul-manager-cancel">취소</button>
+                        <span id="seoul-sign-out" class="seoul-manager-toggle">LogOut</span>
                     </div>
                 </div>
-                <div class="manager-login-btn">
-                    <button class="seoul-manager-cancel">취소</button>
-                    <button id="seoul-sign-in" class="seoul-manager-login">로그인</button>
-                    <span class="seoul-manager-toggle">회원가입</span>
-                </div>
-            </div>
-            <div class="sign-up manager-main">
-                <div class="manager-login">
-                    <ul class="manager-idpw">
-                        <li>
-                            <div>아이디</div>
-                            <input id="seoul-sign-up-id" type="text">
-                        </li>
-                        <li>
-                            <div>비밀번호</div>
-                            <input id="seoul-sign-up-pw" type="password">
-                        </li>
-                    </ul>
-                    <div class="manager-find checkbox">
-                        <label>
-                            <input id="seoul-sign-up-agree" type="checkbox" checked>
-                            약관 동의
-                        </label>
+            {{else}}
+                <div class="seoul-sign-in">
+                    <div class="sign-in manager-title">
+                        관리자 로그인
+                    </div>
+                    <div class="sign-up manager-title">
+                        관리자 회원가입
+                    </div>
+                    <div class="sign-in manager-main">
+                        <div class="manager-login">
+                            <ul class="manager-idpw">
+                                <li>
+                                    <div>아이디</div>
+                                    <input id="seoul-sign-in-id" type="text">
+                                </li>
+                                <li>
+                                    <div>비밀번호</div>
+                                    <input id="seoul-sign-in-pw" type="password">
+                                </li>
+                            </ul>
+                            <div class="manager-find checkbox">
+                                <label>
+                                    <input id="seoul-sign-in-remember" type="checkbox">
+                                    아이디/비밀번호 기억
+                                </label>
+                                <label>
+                                    <input type="checkbox">
+                                    보안로그인(SSL)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="manager-login-btn">
+                            <button class="seoul-manager-cancel">취소</button>
+                            <button id="seoul-sign-in" class="seoul-manager-login">로그인</button>
+                            <span class="seoul-manager-toggle">회원가입</span>
+                        </div>
+                    </div>
+                    <div class="sign-up manager-main">
+                        <div class="manager-login">
+                            <ul class="manager-idpw">
+                                <li>
+                                    <div>아이디</div>
+                                    <input id="seoul-sign-up-id" type="text">
+                                </li>
+                                <li>
+                                    <div>비밀번호</div>
+                                    <input id="seoul-sign-up-pw" type="password">
+                                </li>
+                            </ul>
+                            <div class="manager-find checkbox">
+                                <label>
+                                    <input id="seoul-sign-up-agree" type="checkbox" checked>
+                                    약관 동의
+                                </label>
+                            </div>
+                        </div>
+                        <div class="manager-login-btn">
+                            <button class="seoul-manager-cancel">취소</button>
+                            <button id="seoul-sign-up" class="seoul-manager-login">회원가입</button>
+                            <span class="seoul-manager-toggle">로그인</span>
+                        </div>
                     </div>
                 </div>
-                <div class="manager-login-btn">
-                    <button class="seoul-manager-cancel">취소</button>
-                    <button id="seoul-sign-up" class="seoul-manager-login">회원가입</button>
-                    <span class="seoul-manager-toggle">로그인</span>
-                </div>
-            </div>
+            {{/if}}
         </div>
+
     </div>
 </div>

@@ -27,40 +27,71 @@ initMenu();
 
 //로그인 관리자
 $('.seoul-footer-btn').on('click', function () {
-    $('body').append('<div class="overlay-layer dark-layer"></div>');
-    $('body').css('overflow','hidden');
-
-    var managerLayer=require('../template/manager-layer.hbs');
-
-    $('body').append(managerLayer);
-    $('.manager-layer').animate({
-        bottom: '0px'
-    },{
-        duration: 500,
-        complete: function () {
-            $('.seoul-manager-toggle').on('click', function () {
-               $('.sign-in').toggle();
-               $('.sign-up').toggle();
-            });
-
-            $('#seoul-sign-up').on('click', function () {
-                signUp();
-            });
-            
-            $('#seoul-sign-in').on('click', function () {
-               signIn();
-            });
-
-            $('.seoul-manager-cancel').on('click', function () {
-                closeManagerLayer();
-            });
-
-            $('.overlay-layer').on('click', function () {
-                closeManagerLayer();
-            });
+    $.ajax({
+        url: '/api/manager/get',
+        success: function (result) {
+            openManagerLayer(result);
         }
     });
+
+    function openManagerLayer(managerInfo){
+        $('body').append('<div class="overlay-layer dark-layer"></div>');
+        $('body').css('overflow','hidden');
+
+        var managerLayerTemplate=require('../template/manager-layer.hbs');
+        var managerLayer = managerLayerTemplate(managerInfo);
+
+        $('body').append(managerLayer);
+        $('.manager-layer').animate({
+            bottom: '0px'
+        },{
+            duration: 500,
+            complete: function () {
+                if(!managerInfo.signedIn){
+                    $('.seoul-manager-toggle').on('click', function () {
+                        console.log('dsadsa');
+                        $('.sign-in').toggle();
+                        $('.sign-up').toggle();
+                    });
+
+                    $('#seoul-sign-up').on('click', function () {
+                        signUp();
+                    });
+
+                    $('#seoul-sign-in').on('click', function () {
+                        signIn();
+                    });
+                }
+                else {
+                    $('#seoul-sign-out').on('click', function () {
+                       signOut();
+                    });
+                }
+
+                $('.seoul-manager-cancel').on('click', function () {
+                    closeManagerLayer();
+                });
+
+                $('.overlay-layer').on('click', function () {
+                    closeManagerLayer();
+                });
+            }
+        });
+    }
+    
+
 });
+
+function signOut(){
+    $.ajax({
+       url: '/api/manager/signout',
+       success : function () {
+           closeManagerLayer(function () {
+              location.href='/';
+           });
+       }
+    });
+}
 
 function signIn() {
     var id = $('#seoul-sign-in-id').val().trim();
