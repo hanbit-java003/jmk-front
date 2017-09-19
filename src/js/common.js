@@ -81,7 +81,22 @@ $('.seoul-footer-btn').on('click', function () {
                 }
                 else {
                     $('#seoul-setting').on('click', function () {
-                        location.href = '/setting.html';
+                        closeManagerLayer(function () {
+                            location.href = '/setting.html';
+                        });
+
+                    });
+
+                    $('#seoul-admin').on('click', function () {
+                        closeManagerLayer(function () {
+                            location.href = '/admin/index.html';
+                        });
+                    });
+
+                    $('#seoul-main').on('click', function () {
+                       closeManagerLayer(function () {
+                           location.href = '../'
+                       }) ;
                     });
 
                     $('#seoul-sign-out').on('click', function () {
@@ -182,7 +197,7 @@ function signUp(){
     });
 }
 
-function closeManagerLayer() {
+function closeManagerLayer(callback) {
 
     $('.manager-layer').animate({
         bottom:'-337px'
@@ -192,6 +207,10 @@ function closeManagerLayer() {
             $('.manager-layer').remove();
             $('.overlay-layer').remove();
             $('body').css('overflow', 'auto');
+
+            if(typeof callback === 'function') {
+                callback();
+            }
         }
     });
 
@@ -266,7 +285,7 @@ $('.seoul-move').on('click', function () {
 });
 
 $('.seoul-logo2').on('click', function(){
-   location.href = './';
+   location.href = '../';
 });
 
 $('.seoul-menu-text').on('click', function () {

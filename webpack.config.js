@@ -19,6 +19,12 @@ const pages = [{
 }, {
     html: 'setting',
     script: 'setting'
+}, {
+    html: 'admin/index',
+    script: 'admin/main'
+}, {
+    html: 'admin/seoul-group',
+    script: 'admin/seoul-group'
 }];
 
 module.exports = {
