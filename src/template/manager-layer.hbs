@@ -9,9 +9,13 @@
                     <div class="manager-login">
                         <div class="seoul-bottom-menu">
                             <div class="seoul-signed-in">
+                                {{#if avatar}}
+                                <div class="seoul-manager-icon" style="background-image: url({{avatar}})"></div>
+                                {{else}}
                                 <div class="seoul-manager-icon">
                                     <i class="fa fa-user"></i>
                                 </div>
+                                {{/if}}
                                 <div class="seoul-manager-email">
                                     {{email}}님
                                 </div>
