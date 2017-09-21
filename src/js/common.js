@@ -1,9 +1,63 @@
 /**
  * Created by 1027 on 2017-07-06.
  */
-
 var menus = require('./model/menu');
 var carousel = require('./seoul-carousel.js');
+document.write('<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>');
+
+function kakaoLogin() {
+
+    $(document).ready(function(){
+        Kakao.init("53aaee2d65e52a4b5117bf7ed31572fc");
+        function getKakaotalkUserProfile(){
+            Kakao.API.request({
+                url: '/v1/user/me',
+                success: function(res) {
+                    $("#kakao-profile").append(res.properties.nickname);
+                    $("#kakao-profile").append($("<img/>",{"src":res.properties.profile_image,"alt":res.properties.nickname+"님의 프로필 사진"}));
+                },
+                fail: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+        function createKakaotalkLogin(){
+            $("#kakao-logged-group .kakao-logout-btn,#kakao-logged-group .kakao-login-btn").remove();
+            var loginBtn = $("<a/>",{"class":"kakao-login-btn","text":"로그인"});
+            loginBtn.click(function(){
+                Kakao.Auth.login({
+                    persistAccessToken: true,
+                    persistRefreshToken: true,
+                    success: function(authObj) {
+                        getKakaotalkUserProfile();
+                        createKakaotalkLogout();
+                    },
+                    fail: function(err) {
+                        console.log(err);
+                    }
+                });
+            });
+            $("#kakao-logged-group").prepend(loginBtn)
+        }
+        function createKakaotalkLogout(){
+            $("#kakao-logged-group .kakao-logout-btn,#kakao-logged-group .kakao-login-btn").remove();
+            var logoutBtn = $("<a/>",{"class":"kakao-logout-btn","text":"로그아웃"});
+            logoutBtn.click(function(){
+                Kakao.Auth.logout();
+                createKakaotalkLogin();
+                $("#kakao-profile").text("");
+            });
+            $("#kakao-logged-group").prepend(logoutBtn);
+        }
+        if(Kakao.Auth.getRefreshToken()!=undefined&&Kakao.Auth.getRefreshToken().replace(/ /gi,"")!=""){
+            createKakaotalkLogout();
+            getKakaotalkUserProfile();
+        }else{
+            createKakaotalkLogin();
+        }
+    });
+}
+
 
 function ajax(options) {
 
@@ -65,6 +119,9 @@ $('.seoul-footer-btn').on('click', function () {
             duration: 500,
             complete: function () {
                 if(!managerInfo.signedIn){
+
+
+
                     $('.seoul-manager-toggle').on('click', function () {
                         console.log('dsadsa');
                         $('.sign-in').toggle();
@@ -80,6 +137,9 @@ $('.seoul-footer-btn').on('click', function () {
                     });
                 }
                 else {
+
+                    kakaoLogin();
+
                     $('#seoul-setting').on('click', function () {
                         closeManagerLayer(function () {
                             location.href = '/setting.html';
