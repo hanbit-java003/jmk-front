@@ -23,7 +23,7 @@ Kakao.init('53aaee2d65e52a4b5117bf7ed31572fc');
 Kakao.Auth.createLoginButton({
     container: '#kakao-login-btn1',
     success: function(authObj) {
-        console.log(JSON.stringify(aythObj))
+        console.log(JSON.stringify(authObj))
         alert(JSON.stringify(authObj));
     },
     fail: function(err) {
@@ -71,3 +71,5 @@ Kakao.Story.createFollowButton({
     id: 'kakao'
 });
 //]]>
+
+
